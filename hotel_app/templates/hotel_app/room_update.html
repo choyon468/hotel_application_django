@@ -1,0 +1,16 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Room Update{% endblock %}
+
+{% block content %}
+    <h1>Room Details</h1>
+<div class="col-md-6">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-success" type="submit">Update</button>
+    </form>
+</div>
+    <br>
+    <a href="{% url 'roomlist' %}">Back to List</a>
+{% endblock %}

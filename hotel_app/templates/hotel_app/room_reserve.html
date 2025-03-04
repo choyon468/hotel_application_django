@@ -1,0 +1,13 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Reserve Room{% endblock %}
+
+{% block content %}
+    <h1>Reserve Room {{ room.room_number }}</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-success" type="submit">Reserve Room</button>
+    </form>
+<a href="{% url 'home' %}">Go Back</a>
+{% endblock %}

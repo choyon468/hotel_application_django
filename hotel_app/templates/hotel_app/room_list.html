@@ -1,0 +1,37 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Room List{% endblock %}
+
+{% block content %}
+    <h1>Room List</h1>
+<table class="table">
+    <thead>
+
+        <tr>
+            <th>Bed Type</th>
+            <th>Smoking</th>
+            <th>Rate</th>
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+        {% for room in rooms %}
+            <tr>
+                <td>{{room.bed_type}}</td>
+                <td>{{room.smoking}}</td>
+                <td>{{room.rate}}</td>
+                <td>
+                    <a class="btn btn-info" href="{% url 'roomdetail' pk=room.id %}">Details</a>
+                    <a class="btn btn-primary" href="{% url 'roomupdate' pk=room.id %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'roomdelete' pk=room.id %}">Delete</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

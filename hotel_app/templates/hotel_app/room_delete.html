@@ -1,0 +1,20 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Room Delete{% endblock %}
+
+{% block content %}
+    <h1>Room to be Deleted</h1>
+    <ul>
+        <li>Occupant Name: {{room.occupant_name}}</li>
+        <li>Room Number: {{room.room_number}}</li>
+        <li>Bed Type: {{room.bed_type}}</li>
+        <li>Smoking: {{room.smoking}}</li>
+        <li>Rate Per Night (USD): {{room.rate}}</li>
+    </ul>
+    <form method="post">
+      {% csrf_token %}
+      <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+    <br>
+    <a href="{% url 'roomlist' %}">Back to List</a>
+{% endblock %}
