@@ -1,0 +1,19 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Room Reservations{% endblock %}
+
+{% block content %}
+<h3>Welcome {{user}}, to the home page.</h3>
+    <h1>Available Rooms</h1>
+    <ul>
+    {% for room in rooms %}
+        {% if room.occupant_name is None or room.occupant_name == '' %}
+        <li>
+            <p>{{ room.room_number }} - {{ room.bed_type }} - ${{ room.rate }}</p>
+            <a href="{% url 'reserve' room.pk %}" class="btn btn-success">Reserve</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+<a class="btn btn-info" href="{% url 'roomlist' %}">Room List</a>
+{% endblock %}
